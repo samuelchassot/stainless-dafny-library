@@ -11,7 +11,8 @@ function mapL<T, U>(l: List<T>, f: T -> U): List<U>
   }
 }
 
-function size<T>(l: List<T>): nat
+function size<T>(l: List<T>): (res: nat)
+  ensures res >= 0 && res != -1
 {
   match l {
     case Nil => 0
