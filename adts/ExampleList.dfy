@@ -55,3 +55,14 @@ method lemmaMaxSoundness(l: List<nat>, x: nat)
     }
   }
 }
+
+lemma lemmaMaxSoundnessL(l: List<nat>, x: nat)
+  requires contains(l, x)
+  ensures max(l) >= x
+{
+  match l {
+    case Cons(h, t) => if (h != x) {
+      lemmaMaxSoundnessL(t, x);
+    }
+  }
+}
