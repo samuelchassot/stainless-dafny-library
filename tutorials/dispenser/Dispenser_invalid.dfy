@@ -96,7 +96,7 @@ module Dispenser {
     }
   }
 
-  method isTraceLike(t: seq<(State, Action)>):  (res: bool)
+  method isTraceLike(t: seq<(State, Action)>) returns  (res: bool)
     requires forall i: int | 0 <= i < |t| :: t[i].0.Valid()
     requires forall i: int | 0 <= i < |t| :: Valid(t[i].1)
     decreases |t|
